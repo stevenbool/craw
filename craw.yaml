@@ -1,0 +1,5 @@
+search:
+  //百度移动相关搜索关键词
+  BaiduMobileAboutWordFromGoquery: ".rw-list-container span"
+  //百度移动其他人还搜索了
+  BaiduMobileOtherWordFromGoquery: ".span-item span"
