@@ -42,6 +42,8 @@ type Site struct {
 	Showlink string
 	//获取来源
 	Src string
+	//设置超时世界
+	Timeout time.Duration
 }
 
 //Craw recover list function for search
@@ -236,7 +238,7 @@ func (c *Craw) GetQey(link string, iplist ...string) (*goquery.Document, error) 
 		ip := c.RandMemberFromSlice(iplist)
 		client = client.Proxy(ip)
 	}
-	res, body, errs := client.Get(link).End()
+	res, body, errs := client.Get(link).Timeout(10 * time.Second).End()
 	if errs != nil || res.StatusCode != 200 {
 		if errs != nil {
 			return nil, errs[0]
